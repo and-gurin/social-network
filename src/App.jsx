@@ -14,11 +14,13 @@ const App = (props) => {
                 <Header/>
                 <Navbar navbarData={props.appData.navbar}/>
                 <div className='app-wrapper-content'>
-                    <Route path={'/dialogs'} render={() => <Dialogs dialogsData={props.appData.messagePage.dialogsData}
-                                                                    messagesData={props.appData.messagePage.messagesData}/>}/>
+                    <Route path={'/dialogs'} render={() => <Dialogs
+                        dialogsData={props.appData.messagePage.dialogsData}
+                        messagesData={props.appData.messagePage.messagesData}/>}/>
                     <Route path={'/profile'} render={() => <Profile
                         addNewMessage={props.addNewMessage}
-                        postData={props.appData.profilePage.postData}/>}/>
+                        updateNewPostText={props.updateNewPostText}
+                        postData={props.appData}/>}/>
                 </div>
             </div>
         </BrowserRouter>
