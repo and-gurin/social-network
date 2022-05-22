@@ -1,18 +1,19 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
+import {addNewMessageActionCreator, updateNewPostTextActionCreator} from './../../../state/state'
 
 const MyPosts = (props) => {
 
     const newPostElement = React.createRef()
 
     const addPostsButton = () => {
-      props.addNewMessage()
+      props.dispatch(addNewMessageActionCreator())
     }
 
     const onePostChange = () => {
         let text  = newPostElement.current.value
-        props.updateNewPostText(text)
+        props.dispatch(updateNewPostTextActionCreator(text))
     }
 
 
