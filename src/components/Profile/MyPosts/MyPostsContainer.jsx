@@ -1,23 +1,32 @@
 import React from 'react';
 import {addNewMessageActionCreator, updateNewPostTextActionCreator} from "../../../state/profilePageReducer";
 import MyPosts from "./MyPosts";
+import StoreContext from "../../../StoreContext";
 
-const MyPostsContainer = (props) => {
-    let state = props.store.getState();
-
-    const addPosts = () => {
-      props.store.dispatch(addNewMessageActionCreator())
-    }
-
-    const onePostChange = (text) => {
-        props.dispatch(updateNewPostTextActionCreator(text))
-    }
+const MyPostsContainer = () => {
 
     return (
-       <MyPosts updateNewPostText={onePostChange}
-                addNewMessage={addPosts}
-                postData={state.profilePage.postData}
-                newPostText={state.profilePage.newPostText}/>
+        <StoreContext.Consumer>
+            {
+                (store)=>{
+                    let state = store.getState();
+
+                    const addPosts = () => {
+                        store.dispatch(addNewMessageActionCreator())
+                    }
+
+                    const onePostChange = (text) => {
+                        store.dispatch(updateNewPostTextActionCreator(text))
+                    }
+
+                    return <MyPosts updateNewPostText={onePostChange}
+                                    addNewMessage={addPosts}
+                                    postData={state.profilePage.postData}
+                                    newPostText={state.profilePage.newPostText}/>
+                }
+            }
+        </StoreContext.Consumer>
+
     );
 };
 
