@@ -1,21 +1,20 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
-import {addNewMessageActionCreator, updateNewPostTextActionCreator} from './../../../state/state'
 
 const MyPosts = (props) => {
 
-    const newPostElement = React.createRef()
+    const newPostElement = useRef()
 
     const addPostsButton = () => {
-      props.dispatch(addNewMessageActionCreator())
+      props.addNewMessage()
     }
 
     const onePostChange = () => {
         let text  = newPostElement.current.value
-        props.dispatch(updateNewPostTextActionCreator(text))
+        console.log(text)
+        props.updateNewPostText(text)
     }
-
 
     return (
         <div className={s.postsBlock}>
@@ -23,14 +22,15 @@ const MyPosts = (props) => {
             <div>
                 <div>
                     <textarea ref={newPostElement}
-                              value={props.postData.profilePage.newPostText}
+                              value={props.newPostText}
                               onChange={onePostChange}
                               cols="30" rows="2"/>
                     <div><button onClick={addPostsButton}>Add post</button></div>
                 </div>
             </div>
             <div className={s.posts}>
-                {props.postData.profilePage.postData.map(p=><Post message={p.message} likeCount={p.likeCount}/>)}
+                {props.postData.map(p=><Post message={p.message}
+                                             likeCount={p.likeCount}/>)}
             </div>
 
         </div>

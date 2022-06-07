@@ -2,17 +2,16 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {sendNewMessageActionCreator, updateNewMessageBodyActionCreator} from "../../state/state";
 
 const Dialogs = (props) => {
-    let state = props.store.getState().messagePage
+    let state = props.messagePage
 
     const onClickHandler = () => {
-        props.dispatch(sendNewMessageActionCreator())
+        props.sendNewMessage()
     }
     const onChangeHandler = (e) => {
        let text = e.currentTarget.value
-      props.dispatch(updateNewMessageBodyActionCreator(text))
+      props.updateNewMessageBody(text)
     }
 
     return (

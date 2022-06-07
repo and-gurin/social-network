@@ -10,9 +10,9 @@ const Navbar = (props) => {
             <div><a>News</a></div>
             <div><a>Music</a></div>
             <div><a>Settings</a></div>
-            <h3>Friends</h3>
+            <h3>Friends</h3>---
             <div className={s.friends}>
-                {props.navbarData.friends.map(item=>{
+                {props.navbarData.friendsData.map(item=>{
                     return <div className={s.item}>
                         <div className={s.itemRound}></div>
                         <div>{item.name}</div>
