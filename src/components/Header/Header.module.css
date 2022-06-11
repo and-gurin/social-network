@@ -1,0 +1,12 @@
+.header {
+    grid-area: h;
+    background-image: url("https://w7.pngwing.com/pngs/786/126/png-transparent-logo-contracting-photography-logo-symbol.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 200px;
+
+}
+.header_img {
+    max-width: 100px;
+
+}
