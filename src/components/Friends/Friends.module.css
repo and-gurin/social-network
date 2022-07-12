@@ -4,11 +4,12 @@ h3  {
 .friends {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 .item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 .itemRound {
     display: inline-block;

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import {BrowserRouter, Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
                 <div className='app-wrapper-content'>
                     <Route path={'/dialogs'} render={() => <DialogsContainer/>}/>
                     <Route path={'/profile'} render={() => <Profile/>}/>
+                    <Route path={'/friends'} render={() => <FriendsContainer/>}/>
                 </div>
             </div>
         </BrowserRouter>

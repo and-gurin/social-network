@@ -1,6 +1,6 @@
 import profilePageReducer from "./profilePageReducer";
 import messagePageReducer from "./messagePageReducer";
-import navbarPageReducer from "./navbarPageReducer";
+import friendsPageReducer from "./friendsPageReducer";
 
 
 
@@ -49,7 +49,7 @@ let store = {
     dispatch (action) {
         this._state.profilePage = profilePageReducer(this._state.profilePage, action);
         this._state.messagePage = messagePageReducer(this._state.messagePage, action);
-        this._state.navbarPage = navbarPageReducer(this._state.navbarPage, action);
+        this._state.navbarPage = friendsPageReducer(this._state.navbarPage, action);
         console.log(this._state.profilePage)
         this._callSubscriber(this._state)
 
